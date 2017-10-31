@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import Header from './../layouts/header';
@@ -15,9 +16,11 @@ class PostsIndex extends Component {
     renderList(){
         return _.map(this.props.posts, post =>{
             return (
-                <li className="list-group-item">
+                <Link className="list-group-item list-group-item-action" 
+                      to={`/posts/${post.id}`} 
+                      key={post.id} >
                     {post.title}
-                </li>    
+                </Link>    
             );
         });
     }
@@ -33,9 +36,9 @@ class PostsIndex extends Component {
                      <p className="lead blog-description">Let's creat a blog</p>
                     </div>
                 </div>
-                <ul className="list-group">
+                <div className="list-group">
                     {this.renderList()}
-                </ul>
+                </div>
             </div>    
         );
     }
