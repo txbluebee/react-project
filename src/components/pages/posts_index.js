@@ -30,6 +30,9 @@ class PostsIndex extends Component {
             <div>
                 <Header title="Blog Posts" />
                 <Navbar />
+                <div className="d-flex justify-content-end my-3">
+                    <Link className="btn btn-outline-success" to="/posts/new">Add New Post</Link>
+                </div>    
                 <div className="blog-header mt-3">
                     <div className="container">
                      <h1 className="blog-title">The Blog</h1>

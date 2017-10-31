@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
+import { Link } from 'react-router-dom';
 import Header from './../layouts/header';
 import Navbar from './../layouts/navbar';
 
@@ -29,7 +29,7 @@ class PostsNew extends React.Component{
             <div className="form-group">
                 <label>{field.label}</label>
                 <textarea 
-                    className="form-control"
+                    className={className}
                     name={field.name} 
                     type={field.type} 
                     rows="3"
@@ -39,12 +39,17 @@ class PostsNew extends React.Component{
         );
     }
 
+    onSubmitForm(values){
+        console.log(values);
+    }
+
     render() {
+        const { handleSubmit } = this.props;
         return (
             <div>
                 <Header title="Blog Post"/>
                 <Navbar />
-                <form>
+                <form onSubmit={handleSubmit(this.onSubmitForm.bind(this))}>
                     <Field 
                         label="Title"
                         name="title"
@@ -61,7 +66,7 @@ class PostsNew extends React.Component{
                         type="text"
                         component={this.renderTextarea} />    
                     <button type="submit" className="btn btn-outline-primary">Add</button>
-                    <button type="button" className="btn btn-outline-info ml-3">Cancel</button>       
+                    <Link className="btn btn-outline-info ml-3" to="/posts">Cancel</Link>       
                 </form>  
             </div>
         );
