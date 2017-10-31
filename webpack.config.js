@@ -96,7 +96,8 @@ const config = {
     compress: true,
     port: 8080,
     stats: 'errors-only',
-    open: true
+    open: true,
+    historyApiFallback: true
   },
 
   devtool: 'inline-source-map'
