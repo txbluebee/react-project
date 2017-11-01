@@ -6,18 +6,33 @@ import { fetchPost } from './../../actions/app';
 
 class PostsShow extends React.Component {
     componentDidMount(){
-        const { id } = this.props.match.params;
-        this.props.fetchPost(id);
+        if (!this.props.post){
+            const { id } = this.props.match.params;
+            this.props.fetchPost(id);
+        }
     }
     render() {
+        const { post } = this.props;
+        if (!post){
+            return (
+                <div>Loading...</div>
+            );
+        }
+
         return (
             <div>
                 <Header title="Blog Post"/>
                 <Navbar />
-                <div>Hello Lily</div>
+                <div>{post.title}</div>
             </div>
         );
     }
 }
 
-export default connect(null, { fetchPost })(PostsShow);
+function mapStateToProps({ posts }, ownProps){
+    return {
+        post: posts[ownProps.match.params.id]
+    }    
+}
+
+export default connect(mapStateToProps, { fetchPost })(PostsShow);
