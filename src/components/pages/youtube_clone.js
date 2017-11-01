@@ -1,36 +1,52 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Header from './../layouts/header';
 import Navbar from './../layouts/navbar';
 import SearchBar from './../layouts/search_bar';
 import VideoList from './../layouts/video_list';
+import VideoDetail from './../layouts/video_detail';
 
-import { fetchVideos } from './../../actions/youtube';
+import YouTubeSearch from 'youtube-api-search';
+const API_KEY = 'AIzaSyBR3z8KY75KLLNUDhXBiQFTIB4i9NejoIY';
+
 
 class YoutubeClone extends React.Component{
-        
-    componentDidMount(){
-        this.props.fetchVideos("coldplay");
-    }
 
+    constructor(props){
+        super(props);
+        this.state = {
+            videos: [],
+            selectedVideo: null
+        }
+
+        this.videoSearch('seattle');
+    }
+        
+    videoSearch(term){
+        YouTubeSearch({key: API_KEY, term: term}, (videos) =>{
+          this.setState({
+            videos: videos,
+            selectedVideo: videos[0]
+          });
+        })
+      }
+
+   
     render(){
-        console.log(this.props.videos);
         return(
             <div>
                 <Header title="Youtube Clone" />
                 <Navbar />
-                <SearchBar placeholder="Search Youtube Video..." fetchData={this.props.fetchVideos}/>
-                <div className="row">
-                    <VideoList videos={this.props.videos}/>
+                <SearchBar placeholder="Search Youtube Video..." fetchData={this.videoSearch.bind(this)}/>
+                <div className="row mt-5">
+                    <VideoDetail video={this.state.selectedVideo} />
+                    <VideoList videos={this.state.videos} />
                 </div>
             </div>
         );
     }
 }
 
-function mapStateToProps({videos}){
-    return {videos};
-}
 
-export default connect(mapStateToProps, { fetchVideos })(YoutubeClone);
+
+export default YoutubeClone;
