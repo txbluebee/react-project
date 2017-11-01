@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Header from './../layouts/header';
 import Navbar from './../layouts/navbar';
 import { fetchPost } from './../../actions/app';
@@ -23,7 +24,16 @@ class PostsShow extends React.Component {
             <div>
                 <Header title="Blog Post"/>
                 <Navbar />
-                <div>{post.title}</div>
+                <div>
+                    <div className="d-flex justify-content-between my-3">
+                        <Link className="btn btn-outline-success" to="/posts">Back</Link>
+                        <button className="btn btn-outline-danger">Delete Post</button>
+                    </div>
+                    <h2>{post.title}</h2>
+                    <h6>{post.categories}</h6>
+                    <hr />
+                    <p> {post.content}</p>
+                </div>
             </div>
         );
     }
