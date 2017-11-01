@@ -10,6 +10,7 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './components/pages/home';
 import PostsIndex from './components/pages/posts_index';
 import PostsNew from './components/pages/posts_new';
+import PostsShow from './components/pages/posts_show';
 import './assets/scss/app.scss';
 import 'jquery';
 import 'bootstrap'; 
@@ -24,6 +25,7 @@ ReactDOM.render(
       <BrowserRouter>
           <Switch>
             <Route path="/posts/new" component={PostsNew} />
+            <Route path="/posts/:id" component={PostsShow} />
             <Route path ="/posts" component={PostsIndex} />
             <Route exact path="/" component={HomePage} />
           </Switch> 
