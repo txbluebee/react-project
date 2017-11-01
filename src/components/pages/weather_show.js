@@ -5,6 +5,7 @@ import Header from './../layouts/header';
 import Navbar from './../layouts/navbar';
 import SearchBar from './../layouts/search_bar';
 import Chart from './../layouts/chart';
+import GoogleMap from './../layouts/google_map';
 
 import { fetchWeather } from './../../actions/weather';
 
@@ -20,8 +21,8 @@ class WeatherShow extends React.Component{
         const lat = cityData.city.coord.lat;
         const lon = cityData.city.coord.lon;
         return (
-            <tr key={name}>
-                <td>{name}</td>
+            <tr key={name} className="d-flex justify-content-around pb-2">
+                <td><GoogleMap lat={lat} lon={lon} /></td>
                 <td><Chart data={temps} color="red" unit="F"/></td>
                 <td><Chart data={pressures} color="blue" unit="kPA"/></td>
                 <td><Chart data={humidities} color="green" unit="%" /></td>
@@ -37,11 +38,11 @@ class WeatherShow extends React.Component{
                 <SearchBar placeholder="Search Your City..." fetchData={this.props.fetchWeather} />
                 <table className="table">
                     <thead>
-                        <tr>
-                            <th scope="col">City</th>
-                            <th scope="col">Temperature (F)</th>
-                            <th scope="col">Pressure (kPa)</th>
-                            <th scope="col">Humidity (%)</th>
+                        <tr className="table-info d-flex justify-content-around">
+                            <th>City</th>
+                            <th>Temperature (F)</th>
+                            <th>Pressure (kPa)</th>
+                            <th>Humidity (%)</th>
                         </tr>
                     </thead>
                     <tbody>

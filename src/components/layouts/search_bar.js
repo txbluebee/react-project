@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
     }
     render() {
         return (
-            <div className="row d-flex justify-content-center my-4">
+            <div className="row d-flex justify-content-center mt-4">
                 <div className="col-lg-6">
                     <form onSubmit={this.onSubmitForm.bind(this)}>
                         <div className="input-group">
