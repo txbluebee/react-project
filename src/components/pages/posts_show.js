@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from './../layouts/header';
 import Navbar from './../layouts/navbar';
-import { fetchPost } from './../../actions/app';
+import { fetchPost, deletePost } from './../../actions/app';
 
 class PostsShow extends React.Component {
     componentDidMount(){
@@ -12,6 +12,14 @@ class PostsShow extends React.Component {
             this.props.fetchPost(id);
         }
     }
+
+    onClickDeleteBtn(){
+        const { id } = this.props.match.params;
+        this.props.deletePost(id, ()=>{
+            this.props.history.push('/posts');
+        });
+    }
+
     render() {
         const { post } = this.props;
         if (!post){
@@ -27,7 +35,7 @@ class PostsShow extends React.Component {
                 <div>
                     <div className="d-flex justify-content-between my-3">
                         <Link className="btn btn-outline-success" to="/posts">Back</Link>
-                        <button className="btn btn-outline-danger">Delete Post</button>
+                        <button className="btn btn-outline-danger" onClick={this.onClickDeleteBtn.bind(this)}>Delete Post</button>
                     </div>
                     <h2>{post.title}</h2>
                     <h6>{post.categories}</h6>
@@ -45,4 +53,4 @@ function mapStateToProps({ posts }, ownProps){
     }    
 }
 
-export default connect(mapStateToProps, { fetchPost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
