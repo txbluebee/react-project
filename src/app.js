@@ -11,6 +11,9 @@ import HomePage from './components/pages/home';
 import PostsIndex from './components/pages/posts_index';
 import PostsNew from './components/pages/posts_new';
 import PostsShow from './components/pages/posts_show';
+
+import WeatherShow from './components/pages/weather_show';
+
 import './assets/scss/app.scss';
 import 'jquery';
 import 'bootstrap'; 
@@ -26,7 +29,8 @@ ReactDOM.render(
           <Switch>
             <Route path="/posts/new" component={PostsNew} />
             <Route path="/posts/:id" component={PostsShow} />
-            <Route path ="/posts" component={PostsIndex} />
+            <Route path="/posts" component={PostsIndex} />
+            <Route path="/weather" component={WeatherShow} />
             <Route exact path="/" component={HomePage} />
           </Switch> 
       </BrowserRouter>  

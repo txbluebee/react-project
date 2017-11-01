@@ -16,7 +16,7 @@ export default class Navbar extends React.Component {
                   <a className="nav-link" href="/posts">Blog Post</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Weather Forecase</a>
+                  <a className="nav-link" href="/weather">Weather Forecase</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">YouTube Clone</a>
