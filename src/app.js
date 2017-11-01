@@ -13,6 +13,7 @@ import PostsNew from './components/pages/posts_new';
 import PostsShow from './components/pages/posts_show';
 
 import WeatherShow from './components/pages/weather_show';
+import YoutubeClone from './components/pages/youtube_clone';
 
 import './assets/scss/app.scss';
 import 'jquery';
@@ -31,6 +32,7 @@ ReactDOM.render(
             <Route path="/posts/:id" component={PostsShow} />
             <Route path="/posts" component={PostsIndex} />
             <Route path="/weather" component={WeatherShow} />
+            <Route path="/youtube" component={YoutubeClone} />
             <Route exact path="/" component={HomePage} />
           </Switch> 
       </BrowserRouter>  

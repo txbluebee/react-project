@@ -35,7 +35,7 @@ class WeatherShow extends React.Component{
             <div>
                 <Header title="Weather Forecast"/>
                 <Navbar />
-                <SearchBar placeholder="Search Your City..." fetchData={this.props.fetchWeather} />
+                <SearchBar placeholder="Search 5 days Weather Forecast Your City..." fetchData={this.props.fetchWeather} />
                 <table className="table">
                     <thead>
                         <tr className="table-info d-flex justify-content-around">
