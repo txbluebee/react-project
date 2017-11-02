@@ -17,7 +17,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './assets/js/[name].bundle.js',
-    publicPath: 'http://localhost:8080/'
+    publicPath: ''
   },
 
   module: {
