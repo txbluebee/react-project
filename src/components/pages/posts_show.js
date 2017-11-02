@@ -32,7 +32,7 @@ class PostsShow extends React.Component {
             <div>
                 <Header title="Blog Post"/>
                 <Navbar />
-                <div>
+                <div className="px-5">
                     <div className="d-flex justify-content-between my-3">
                         <Link className="btn btn-outline-success" to="/posts">Back</Link>
                         <button className="btn btn-outline-danger" onClick={this.onClickDeleteBtn.bind(this)}>Delete Post</button>

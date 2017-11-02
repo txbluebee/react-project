@@ -32,15 +32,19 @@ class PostsIndex extends Component {
                 <Navbar />
                 <div className="d-flex justify-content-end my-3">
                     <Link className="btn btn-outline-success" to="/posts/new">Add New Post</Link>
-                </div>    
-                <div className="blog-header mt-3">
-                    <div className="container">
-                     <h1 className="blog-title">The Blog</h1>
-                     <p className="lead blog-description">Let's creat a blog</p>
-                    </div>
-                </div>
-                <div className="list-group">
-                    {this.renderList()}
+                </div>  
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-8">
+                        <div className="blog-header mt-3">
+                            <div className="container">
+                            <h1 className="blog-title">The Blog</h1>
+                            <p className="lead blog-description">Let's creat a blog</p>
+                            </div>
+                        </div>
+                        <div className="list-group">
+                            {this.renderList()}
+                        </div>
+                    </div>    
                 </div>
             </div>    
         );

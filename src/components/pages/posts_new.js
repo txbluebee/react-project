@@ -52,27 +52,31 @@ class PostsNew extends React.Component{
         const { handleSubmit } = this.props;
         return (
             <div>
-                <Header title="Blog Post"/>
+                <Header title="Blog Posts"/>
                 <Navbar />
-                <form onSubmit={handleSubmit(this.onSubmitForm.bind(this))}>
-                    <Field 
-                        label="Title"
-                        name="title"
-                        type="text"
-                        component={this.renderField} />    
-                    <Field 
-                        label="Categories"
-                        name="categories"
-                        type="text"
-                        component={this.renderField} />    
-                    <Field 
-                        label="Content"
-                        name="content"
-                        type="text"
-                        component={this.renderTextarea} />    
-                    <button type="submit" className="btn btn-outline-primary">Add</button>
-                    <Link className="btn btn-outline-info ml-3" to="/posts">Cancel</Link>       
-                </form>  
+                <div className="row d-flex justify-content-center mt-4">
+                    <div className="col-md-6">
+                        <form onSubmit={handleSubmit(this.onSubmitForm.bind(this))}>
+                            <Field 
+                                label="Title"
+                                name="title"
+                                type="text"
+                                component={this.renderField} />    
+                            <Field 
+                                label="Categories"
+                                name="categories"
+                                type="text"
+                                component={this.renderField} />    
+                            <Field 
+                                label="Content"
+                                name="content"
+                                type="text"
+                                component={this.renderTextarea} />    
+                            <button type="submit" className="btn btn-outline-primary">Add</button>
+                            <Link className="btn btn-outline-info ml-3" to="/posts">Cancel</Link>       
+                        </form>
+                    </div>      
+                </div>        
             </div>
         );
     }

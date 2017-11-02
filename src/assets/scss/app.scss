@@ -9,3 +9,19 @@ nav .navbar-collapse {
         margin: 0 1rem;
     }
 }
+.projects {
+    a {
+        color: #000;
+        text-decoration: none !important;
+        &:hover {
+            text-decoration: none !important;
+            .card-text {
+                color: #000;
+            }
+        }
+    }
+
+    .card-body {
+        background-color: #eeeeee;
+    }
+}
