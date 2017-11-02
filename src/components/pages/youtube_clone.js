@@ -29,9 +29,8 @@ class YoutubeClone extends React.Component{
             selectedVideo: videos[0]
           });
         })
-      }
+    }
 
-   
     render(){
         return(
             <div>
@@ -40,7 +39,7 @@ class YoutubeClone extends React.Component{
                 <SearchBar placeholder="Search Youtube Video..." fetchData={this.videoSearch.bind(this)}/>
                 <div className="row mt-5">
                     <VideoDetail video={this.state.selectedVideo} />
-                    <VideoList videos={this.state.videos} />
+                    <VideoList videos={this.state.videos} onVideoSelect={selectedVideo=>{this.setState({selectedVideo})} }/>
                 </div>
             </div>
         );

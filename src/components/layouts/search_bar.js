@@ -15,12 +15,13 @@ class SearchBar extends React.Component {
     onSubmitForm(event){
         event.preventDefault();
         this.props.fetchData(this.state.term);
+        this.setState({term: ''})
     }
     render() {
         return (
             <div className="row d-flex justify-content-center mt-4">
                 <div className="col-lg-6">
-                    <form onSubmit={this.onSubmitForm.bind(this)}>
+                    <form onSubmit={()=>this.onSubmitForm}>
                         <div className="input-group">
                             <input 
                                 type="text" 
